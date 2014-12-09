@@ -60,10 +60,15 @@ module.exports = function(grunt) {
             },
             js: {
                 expand: true,
-                //flatten: true,
                 cwd: 'src/js/',
                 src: 'vendor/**',
                 dest: 'out/js/'
+            },
+            fonts: {
+                expand: true,
+                cwd: 'src/',
+                src: 'fonts/**',
+                dest: 'out/'
             }
         },
         imagemin: {
