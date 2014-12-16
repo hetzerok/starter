@@ -22,6 +22,14 @@ module.exports = function(grunt) {
                 }
             }
         },
+        autoprefixer: {
+            options: {
+                browsers: ['last 2 versions', 'ie 9']
+            },
+            all: {
+                src: 'src/css/styles.css'
+            }
+        },
         cssmin: {
             options: {
                 banner: '/* Created by Hetzerok */'
@@ -49,11 +57,11 @@ module.exports = function(grunt) {
                 options: {
                     process: function (content, srcpath) {
                         var str = content;
-                        str =  content.replace(/src\/css/g,"out/css");
-                        str = str.replace(/src\/img/g, "out/img");
+                        str =  content.replace(/src\/css/g,"css");
+                        str = str.replace(/src\/img/g, "img");
                         str = str.replace("<script src=\"src/js/plugins.js\"></script>", "");
-                        str = str.replace("<script src=\"src/js/main.js\"></script>", "<script src=\"out/js/all.min.js\"></script>");
-                        str = str.replace(/src\/js/g, "out/js");;
+                        str = str.replace("<script src=\"src/js/main.js\"></script>", "<script src=\"js/all.min.js\"></script>");
+                        str = str.replace(/src\/js/g, "js");;
                         return str;
                     }
                 }
@@ -84,10 +92,11 @@ module.exports = function(grunt) {
     });
     grunt.loadNpmTasks('grunt-spritesmith');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.registerTask('default', ['sprite', 'newer:less',/* 'newer:concat',*/'newer:cssmin', 'newer:uglify', 'copy', 'newer:imagemin']);
+    grunt.registerTask('default', ['sprite', 'newer:less', 'autoprefixer', 'newer:cssmin', 'newer:uglify', 'copy', 'newer:imagemin']);
 };
