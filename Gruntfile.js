@@ -5,9 +5,9 @@ module.exports = function(grunt) {
         sprite: {
             all: {
                 src: 'src/icon/*.png',
-                destImg: 'src/img/sprites.png',
-                destCSS: 'src/css/sprites.less',
-                engine: 'gm',
+                dest: 'src/img/sprites.png',
+                destCss: 'src/css/sprites.less',
+                padding: 10,
                 engineOpts: {
                     'imagemagick': true
                 },
