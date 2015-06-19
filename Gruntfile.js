@@ -52,7 +52,8 @@ module.exports = function(grunt) {
         },
         copy: {
             main: {
-                src: '*.html',
+                expand: true,
+                src: './*.html',
                 dest: 'out/',
                 options: {
                     process: function (content, srcpath) {
