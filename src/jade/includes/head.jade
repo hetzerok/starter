@@ -1,3 +1,6 @@
+mixin svg(id, width, height, color)
+    svg(width=width, height=height, fill=color)
+        use(xlink:href=id)
 head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
