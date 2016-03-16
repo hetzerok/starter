@@ -15,6 +15,24 @@ module.exports = function(grunt) {
                 'algorithm': 'binary-tree'
             }
         },
+        svgstore: {
+            options: {
+                prefix: 'icon-',
+                svg: {
+                    viewBox: '0 0 100 100',
+                    xmlns: 'http://www.w3.org/2000/svg',
+                    style: 'display:none'
+                },
+                cleanup: [
+                    'fill'
+                ]
+            },
+            all: {
+                files: {
+                    'src/img/sprite.svg': ['src/svgmin/*.svg']
+                }
+            }
+        },
         less: {
             dev: {
                 files: {
@@ -62,7 +80,7 @@ module.exports = function(grunt) {
                         str = str.replace(/src\/img/g, "img");
                         str = str.replace("<script src=\"src/js/plugins.js\"></script>", "");
                         str = str.replace("<script src=\"src/js/main.js\"></script>", "<script src=\"js/all.min.js\"></script>");
-                        str = str.replace(/src\/js/g, "js");;
+                        str = str.replace(/src\/js/g, "js");
                         return str;
                     }
                 }
@@ -81,12 +99,23 @@ module.exports = function(grunt) {
             }
         },
         imagemin: {
+            options: {
+                optimizationLevel: 3
+            },
             dynamic: {
                 files: [{
                     expand: true,
                     cwd: 'src/img/',
                     src: ['**/*.{png,jpg,gif}'],
                     dest: 'out/img/'
+                }]
+            },
+            svg: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/svgs/',
+                    src: ['**/*.svg'],
+                    dest: 'src/svgmin/'
                 }]
             }
         }
@@ -99,5 +128,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.registerTask('default', ['sprite', 'newer:less', 'autoprefixer', 'newer:cssmin', 'newer:uglify', 'copy', 'newer:imagemin']);
+    grunt.loadNpmTasks('grunt-svgstore');
+    grunt.registerTask('svg', ['imagemin:svg', 'svgstore']);
+    grunt.registerTask('default', ['sprite', 'svg', 'newer:less', 'autoprefixer', 'newer:cssmin', 'newer:uglify', 'copy', 'newer:imagemin']);
 };

@@ -12,6 +12,7 @@
         "grunt-contrib-less": "latest",
         "grunt-contrib-uglify": "latest",
         "grunt-newer": "latest",
-        "grunt-spritesmith": "latest"
+        "grunt-spritesmith": "latest",
+        "grunt-svgstore": "latest"
     }
 }
