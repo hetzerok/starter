@@ -1,11 +1,12 @@
-@import "normalize.css";
 @import "fonts.less";
+@import "normalize.css";
 @import "font-awesome.css";
 @import "bootstrap.css";
 @import "../js/vendor/owl/owl.carousel.css";
 @import "../js/vendor/selectric/selectric.css";
+@import "../js/vendor/fancybox/jquery.fancybox.css";
 @import "animate.less";
-@import "sprites.less";
+@import "sprite.less";
 
 /***********************VARS***********************/
 
@@ -16,8 +17,46 @@
 
 
 /**********************CLASSES*********************/
+.hideo {
+  display: none;
+}
 
+.toleft {
+  text-align: left;;
+}
 
+.toright {
+  text-align: right;
+}
+
+.tocenter {
+  text-align: center;
+}
+
+.nofloat {
+  float: none;
+}
+
+.nomargin {
+  margin: 0;
+}
+
+.clear {
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.icon {
+  position: absolute;
+  svg {
+    display: block;
+  }
+}
 
 /**********************CONTENT*********************/
 * {
@@ -29,10 +68,22 @@
   box-sizing: border-box;
 }
 
+a, input, button, textarea {
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
+
 html {
   font-size: 10px;
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }

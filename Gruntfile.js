@@ -5,8 +5,8 @@ module.exports = function(grunt) {
         sprite: {
             all: {
                 src: 'src/icon/*.png',
-                dest: 'src/img/sprites.png',
-                destCss: 'src/css/sprites.less',
+                dest: 'src/img/sprite.png',
+                destCss: 'src/css/sprite.less',
                 padding: 10,
                 engineOpts: {
                     'imagemagick': true
@@ -23,13 +23,12 @@ module.exports = function(grunt) {
                     xmlns: 'http://www.w3.org/2000/svg',
                     style: 'display:none'
                 },
-                cleanup: [
-                    'fill'
-                ]
+                cleanup: ['fill', 'class', 'style'],
+                cleanupdefs: true
             },
             all: {
                 files: {
-                    'src/img/sprite.svg': ['src/svgmin/*.svg']
+                    'src/img/sprite.svg': ['src/svgs/*.svg']
                 }
             }
         },
@@ -106,16 +105,8 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'src/img/',
-                    src: ['**/*.{png,jpg,gif}'],
+                    src: ['**/*.{png,jpg,gif,svg}'],
                     dest: 'out/img/'
-                }]
-            },
-            svg: {
-                files: [{
-                    expand: true,
-                    cwd: 'src/svgs/',
-                    src: ['**/*.svg'],
-                    dest: 'src/svgmin/'
                 }]
             }
         }
@@ -129,6 +120,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-svgstore');
-    grunt.registerTask('svg', ['imagemin:svg', 'svgstore']);
+    grunt.registerTask('svg', ['svgstore']);
     grunt.registerTask('default', ['sprite', 'svg', 'newer:less', 'autoprefixer', 'newer:cssmin', 'newer:uglify', 'copy', 'newer:imagemin']);
 };

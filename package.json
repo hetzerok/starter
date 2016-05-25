@@ -1,18 +1,25 @@
 {
-    "name": "hscaff",
-    "version": "0.1.0",
-    "license": "MIT",
-    "devDependencies": {
-        "grunt": "latest",
-        "grunt-autoprefixer": "latest",
-        "grunt-contrib-concat": "latest",
-        "grunt-contrib-copy": "latest",
-        "grunt-contrib-cssmin": "latest",
-        "grunt-contrib-imagemin": "latest",
-        "grunt-contrib-less": "latest",
-        "grunt-contrib-uglify": "latest",
-        "grunt-newer": "latest",
-        "grunt-spritesmith": "latest",
-        "grunt-svgstore": "latest"
-    }
+  "name": "hscaff",
+  "version": "0.2.0",
+  "license": {
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/mit-license.php"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-autoprefixer": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-imagemin": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-newer": "latest",
+    "grunt-spritesmith": "latest",
+    "grunt-svgstore": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hetzerok/starter.git"
+  }
 }
