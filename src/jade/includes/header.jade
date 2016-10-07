@@ -1,2 +1,26 @@
-include head.jade
 header
+    div.container-fluid
+        div.logo
+            a.headlogo(href="#")
+        div.mainmenu
+            div.times
+                i.fa.fa-2x.fa-times
+            - var mainmenu = ["Студия", "Услуги", "Наши работы", "Блог", "Контакты"];
+            ul
+                for item in mainmenu
+                    li
+                        a(href="#")= item
+        div.righter
+            div.info
+                div.languages
+                    - var languages = ["Ru", "Eng"]
+                    ul
+                        for lang in languages
+                            li
+                                a(href="#")= lang
+                div.phone.hidden-sm.hidden-xs
+                    span.headphone 8 800 1234 5653
+            div.callback.hidden-sm.hidden-xs
+                a.callbacklink.button(href="#") Обратный звонок
+            div.ham
+                i.fa.fa-4x.fa-bars

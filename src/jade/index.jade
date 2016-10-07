@@ -1,7 +1,20 @@
 doctype html
 html(lang="ru")
-    include ./includes/header.jade
-    main
-
-    include ./includes/footer.jade
+    include ./includes/head.jade
+    div.wrapper
+        include ./includes/header.jade
+        main.index
+            div.container-fluid.sto
+                div.row.sto
+                    div.col-md-10.col-md-offset-1.sto
+                        div.maincontent
+                            div.centercontent
+                                div.header
+                                    div.trueheader
+                                        span.typed
+                                    div.subheader Веб-дизайн, разработка сайтов и мобильных приложений
+                                div.text
+                                    strong CG Partners
+                                    |  это творческая команда веб-разработчиков, дизайнеров и аналитиков, которые любят решать сложные задачи и выполнять поставленные цели.
+        include ./includes/footer.jade
 include ./includes/foot.jade

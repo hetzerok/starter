@@ -1,0 +1,115 @@
+doctype html
+html(lang="ru")
+    include ./includes/head.jade
+    div.wrapper
+        include ./includes/inheader.jade
+        main
+            div.container-fluid
+                div.row.text
+                    div.col-xs-12
+                        h1 Сервис
+                        p Developers work closely with the UX and design team to ensure creative freedom. Resulting in a website that looks great, is intuitive for the end user and easy to manage in-house, helping to reduce administration costs.
+                div.row.service
+                    div.col-md-6
+                        h2.c_blue Веб разработка
+                        div.servtext Our development team creates clean, valid, responsive code that works across multiple platforms and renders seamlessly on modern smartphones and tablets. An in-depth knowledge of various open source frameworks, content management systems and bespoke application development gives us the freedom to recommend the best platform for your current and future needs.
+                        div.row
+                            div.col-sm-6
+                                div.servitem
+                                    div.header.f_blue
+                                        +svg("src/img/sprite.svg#icon-adaptive", 32, 25)
+                                        span.headtext Адаптивная верстка
+                                    div.text Наши сайты работают на всех разрешениях экрана и различных типов устройств.
+                            div.col-sm-6
+                                div.servitem
+                                    div.header.f_blue
+                                        +svg("src/img/sprite.svg#icon-cross", 25, 25)
+                                        span.headtext Кросс-браузерность
+                                    div.text Используя Chrome или Firefox, Safari или даже Internet Explorer, вы увидите весь функционал вашего сайта.
+                            div.col-sm-6
+                                div.servitem
+                                    div.header.f_blue
+                                        +svg("src/img/sprite.svg#icon-qual", 28, 25)
+                                        span.headtext Проверка на качество
+                                    div.text Каждый продукт, созданный нами проходит полную проверку и тестирование перед сдачей клиенту.
+                            div.col-sm-6
+                                div.servitem
+                                    div.header.f_blue
+                                        +svg("src/img/sprite.svg#icon-tag", 23, 13)
+                                        span.headtext Профессиональная разработка
+                                    div.text Мы реализуем сложные проекты на различных языках программирования: интернет-магазины, порталы, системы автоматизации.
+                    div.col-md-6
+                        div.serv_video
+                            div.video.begin
+                            video
+                                source(src="src/video/v1.mp4", type="video/mp4")
+                            div.video.end
+                div.row.service
+                    div.col-md-6.col-md-push-6
+                        h2.c_green Мобильная разработка
+                        div.servtext Mobile is at the forefront of everything we design, whether that’s in the form of responsive websites that work flawlessly across modern smartphones and tablets, or native app development for iOS, Android and Windows Phone. Mobile device usage has boomed and will continue to do so.
+                        div.row
+                            div.col-sm-6
+                                div.servitem
+                                    div.header.f_green
+                                        +svg("src/img/sprite.svg#icon-mob", 24, 25)
+                                        span.headtext Дружественный интерфейс
+                                    div.text Создавая мобильные приложения и игры, мы гарантируем корректную работу на любом смартфоне или планшете.
+                            div.col-sm-6
+                                div.servitem
+                                    div.header.f_green
+                                        +svg("src/img/sprite.svg#icon-adaptive", 21, 25)
+                                        span.headtext Мобильный UX/UI
+                                    div.text Успешные приложения скрывают за собой продуманную стратегию, проектирование, маркетинг и аналитику.
+                            div.col-sm-6
+                                div.servitem
+                                    div.header.f_green
+                                        +svg("src/img/sprite.svg#icon-qa", 28, 25)
+                                        span.headtext QA тестирование
+                                    div.text Любой наш продукт проходит проверку качества, дорабатывается, улучшается и доводится до совершенства.
+                            div.col-sm-6
+                                div.servitem
+                                    div.header.f_green
+                                        +svg("src/img/sprite.svg#icon-android", 21, 25)
+                                        span.headtext Мультиплатформенность
+                                    div.text Реализация приложений на всех мобильных устройствах и платформах.
+                    div.col-md-6.col-md-pull-6
+                        div.serv_img
+                            img(src="src/img/phones.png", alt="")
+                div.row.service
+                    div.col-md-6
+                        h2.c_red Дизайн студия
+                        div.servtext Мы понимаем, что большой сайт это не только выглядит в одиночку (хотя это, безусловно, помогает), веб-дизайн должен учитывать и другие факторы, такие как удобство использования, целей и задач, целевой рынок и т.д. ключ ко всем успешных проектов веб-сайтов является планирование, и это то, что мы берем много заботы над. Перед тем, как начать любой проект, мы создаем подробные
+                        div.row
+                            div.col-sm-6
+                                div.servitem
+                                    div.header.f_red
+                                        +svg("src/img/sprite.svg#icon-pixel", 30, 25)
+                                        span.headtext Pixel Perfect дизайн
+                                    div.text Мы уделяем большое внимание каждой детали.
+                            div.col-sm-6
+                                div.servitem
+                                    div.header.f_red
+                                        +svg("src/img/sprite.svg#icon-colb", 18, 25)
+                                        span.headtext Опыт и профессионализм
+                                    div.text Наши UX/UI дизайнеры знаю что хотят пользователи и как им это дать.
+                            div.col-sm-6
+                                div.servitem
+                                    div.header.f_red
+                                        +svg("src/img/sprite.svg#icon-target", 25, 25)
+                                        span.headtext Цели и стратегии
+                                    div.text Начиная работу над дизайном у нас уже есть определенная цель и стратегия как он должен взаимодействовать с пользователем.
+                            div.col-sm-6
+                                div.servitem
+                                    div.header.f_red
+                                        +svg("src/img/sprite.svg#icon-unik", 21, 25)
+                                        span.headtext Уникальный дизайн
+                                    div.text Любой продукт, созданый в нашей компании имеет уникальный и продуманный дизайн, каждый элемент играет свою важную роль.
+                    div.col-md-6
+                        div.serv_video
+                            div.video.begin
+                            video.wow
+                                source(src="src/video/v2.mp4", type="video/mp4")
+                            div.video.end
+        include ./includes/infooter.jade
+include ./includes/foot.jade

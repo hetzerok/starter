@@ -74,6 +74,7 @@ hr {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+  max-width: 1500px;
 }
 .row {
   margin-left: -15px;
