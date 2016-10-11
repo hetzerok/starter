@@ -1,170 +1,101 @@
 $(document).ready(function(){
-    var top = 0;
-    var dato;
-    dato = {
-        "files": [
-            {
-                "type":"IMAGE",
-                "source":"src/img/cbg.jpg",
-                "size":620
-            }]
-    };
-
-    if(device.mobile()) {
-        $("body").addClass("mobile");
-    } else {
-        dato.files.push(
-            {"type": "VIDEO",
-                "sources": {
-                    "h264": {
-                        "source": "src/video/v2.mp4",
-                        "size": 64844.958
-                    }
-                }
-            });
-    }
-    if($("main").hasClass("index")) {
-        $.html5Loader({
-            filesToLoad: dato,
-            onBeforeLoad: function () {
-                $(".preloader").addClass("active");
-            },
-            onComplete: function () {
-                if (!device.mobile()) {
-                    $(".bg .video").html('<video autoplay="" loop="" muted=""><source src="src/video/v2.mp4" type="video/mp4"></video>');
-                }
-                $(".preloader").removeClass("active");
-                console.log("ready");
-            },
-            onElementLoaded: function (obj, elm) {
-            },
-            onUpdate: function (percentage) {
-            },
-            onMediaError: function () {
-                console.log("error");
-            }
-        });
-    }
-
-    $(".typed").typed({
-        strings: ["Мы создаем сайты, которые работают", "Мы создаем приложения, которые приложения"],
+    $(".indslider").owlCarousel({
+        items: 1,
+        nav: true,
+        navRewind: false,
+        dots: false,
+        loop: false,
+        navText: ['<svg width="14px" height="22px"><use xlink:href="#icon-chl"></use></svg>', '<svg width="14px" height="22px"><use xlink:href="#icon-chr"></use></svg>']
+    });
+    $(".partcarousel").owlCarousel({
+        items: 6,
+        nav: true,
+        loop: false,
+        dots: false,
+        autoplay: true,
+        navRewind: false,
+        navText: ['<svg width="21px" height="36px"><use xlink:href="#icon-chl"></use></svg>', '<svg width="21px" height="36px"><use xlink:href="#icon-chr"></use></svg>']
+    });
+    $(".certcarousel").owlCarousel({
+        items: 6,
+        nav: true,
+        navRewind: false,
+        dots: false,
         loop: true,
-        typeSpeed: 20,
-        backDelay: 5000
+        autoWidth: true,
+        navText: ['<svg width="21px" height="36px"><use xlink:href="#icon-chl"></use></svg>', '<svg width="21px" height="36px"><use xlink:href="#icon-chr"></use></svg>']
     });
-
-    $(".ham").click(function(){
-        top = $(window).scrollTop();
-        $("html, body").animate({"scrollTop": 0}, 500);
-        $(".wrapper").addClass("onleft");
-        $(".wrapper").removeClass("onright");
+    $(".objcarousel, .extcarousel, .intcarousel").owlCarousel({
+        items: 4,
+        nav: true,
+        navRewind: true,
+        dots: false,
+        loop: false,
+        navText: ['<svg width="21px" height="36px"><use xlink:href="#icon-chl"></use></svg>', '<svg width="21px" height="36px"><use xlink:href="#icon-chr"></use></svg>']
     });
-    $(".times").click(function(){
-        $(".wrapper").removeClass("onleft");
-        setTimeout(scr, 500);
+    $(".fancy").fancybox({
+        type: 'image'
     });
-
-    $(".callbacklink").click(function(){
-        top = $(window).scrollTop();
-        if(device.mobile()) {
-            $("html, body").animate({"scrollTop": 0}, 300, function(){
-                $(".wrapper").addClass("onright");
-                $(".wrapper").removeClass("onleft");
-                $(".callbackform").addClass("active");
-            });
-        }
-        return false;
+    $(".buybutton, .questbutton").fancybox({
+        autoSize: false,
+        width: 500,
+        type: 'inline'
     });
-
-    var scr = function() {
-        $("html, body").animate({"scrollTop": top}, 300);
-    };
-
-    $(".ftimes").click(function(){
-        $(".wrapper").removeClass("onright");
-        $(".callbackform").removeClass("active");
-        setTimeout(scr, 500);
-    });
-
-    $(".video.begin").waypoint({
-        offset: "100%",
-        handler: function(direction) {
-            var cur = $(this.element).parent().find("video");
-            if(direction == "down") {
-                $("video").each(function () {
-                    this.pause();
-                });
-                cur[0].play();
-            } else if(direction == "up") {
-                cur[0].pause();
-            }
-        }
-    });
-
-    $(".video.end").waypoint({
-        element: $(".video.end"),
-        handler: function(direction) {
-            var cur = $(this.element).parent().find("video");
-            if(direction == "down") {
-                cur[0].pause();
-            } else if(direction == "up") {
-                $("video").each(function () {
-                    this.pause();
-                });
-                cur[0].play();
-            }
-        }
-    });
-
-    $(".folin").click(function(){
+    $(".searchbut").click(function(){
         var that = this;
-        var wrapper = $(".foliwrap");
-        var i = 1000;
-        var images, list, k, text;
-        $(wrapper).addClass("active");
-        $("body").addClass("oh");
-        images = $(that).parents(".portfolioitem").find(".portfolioitem__images").html();
-        text = $(that).parents(".portfolioitem").find(".portfolioitem__hidecontent").html();
-        $(wrapper).find(".images").html(images);
-        $(wrapper).find(".incontent").html(text);
-        list = $(wrapper).find(".images a");
-        $(list).each(function(index){
-            $(this).css("z-index", i);
-            $(this).data("ind", index);
-            if(i == 1000) {
-                $(this).addClass("first");
-            }
-            $(this).addClass("folimage");
-            if(i<1000) {
-                k = "1."+index;
-                $(this).css("transform", "matrix(" + 1/k + ", 0, 0, " + 1/k + ", " + index*100 + ", 0)");
-            }
-            i--;
+        var form = $(that).parent().find(".searchform");
+        if ($(form).hasClass("active")) {
+            $(that).parent().find(".searchform").removeClass("active");
+        } else {
+            $(that).parent().find(".searchform").addClass("active");
+        }
+        return false;
+    });
+    var first = $(".colorblock a").first();
+    var b = $(".colorimage a");
+    $(b).attr("href", $(first).data("img"));
+    $(b).attr("title", $(first).attr("title"));
+    $(b).find("img").attr("src", $(first).attr("href"));
+    $(first).addClass("active");
+    $(".colorblock a").click(function(){
+        var that = this;
+        var big = $(".colorimage a");
+
+        $(".colorblock a").each(function(){
+            $(this).removeClass("active");
         });
+        $(big).attr("href", $(that).data("img"));
+        $(big).find("img").attr("src", $(that).attr("href"));
+        $(big).attr("title", $(that).attr("title"));
+        $(that).addClass("active");
         return false;
     });
 
-    $(".foliwrap").on("click", ".folimage", function() {
-        var zindex = $(this).css("z-index");
-        var transform = $(this).css("transform");
-        var ind = $(this).data("ind");
-        var first = $(".foliwrap .folimage.first");
+    var ms = $("#map");
+    if(ms[0])
+    {
+        var map;
 
-        $(first).removeClass("first");
-        $(first).css("z-index", zindex);
-        $(first).css("transform", transform);
-        $(first).data("ind", ind);
+        DG.then(function () {
+            var myIcon = DG.icon({
+                iconUrl: 'http://tbs.color-demo.ru/assets/templates/tbs/out/img/mark.png',
+                iconRetinaUrl: '',
+                iconSize: [41, 65],
+                iconAnchor: [21, 65],
+                popupAnchor: [0, 0],
+                shadowUrl: '',
+                shadowRetinaUrl: '',
+                shadowSize: [0, 0],
+                shadowAnchor: [0, 0]
+            });
 
-        $(this).addClass("first");
-        $(this).css("z-index", "1000");
-        $(this).data("ind", "0");
-        return false;
-    });
+            map = DG.map('map', {
+                center: [52.728252, 41.390161],
+                zoom: 15,
+                scrollWheelZoom: false
+            });
 
-    $(".foliwrap .wtimes").click(function(){
-        $(".foliwrap").removeClass("active");
-        $(".foliwrap .images").html("");
-        $(".foliwrap .incontent").html("");
-        $("body").removeClass("oh");
-    });
+            DG.marker([52.728252, 41.390161], {icon: myIcon}).addTo(map).bindPopup('ТамбовБизнесСтрой');
+        });
+    }
 });
